@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Find your own</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="쇼핑몰 추천 사이트" />	
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<script language="javascript">
+		 
+		 function chkMail() 
+		 {
+			var txtMail=document.frm.email.value;
+			var result=txtMail.indexOf("@");
+
+			if(result==-1)
+			alert("메일 주소형식이 틀렸습니다");
+			else
+			alert("로그인이 되었습니다!")
+		 }
+
+		 function checkId() 
+		 { 
+			 var str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
+			 var strId=document.frm.id.value; 
+			 var lenId=strId.length; 
+			 var check=true;
+			 for(var i=0;i<lenId;i++) 
+			 { 
+				 check=str.indexOf(strId.charAt(i)); 
+				 if(check==-1) 
+				 break; 
+				}
+				if(check==-1) 
+				alert("ID는 영문과 숫자만 입력하시오"); 
+				else chkMail();
+
+				frm.id.select()
+		}
+
+		 		 
+		  </script>
+	</head>
+	<body onload="frm.id.focus()">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="index.html">Review</a></li>
+							<li><a href="index.html">Chat</a></li>
+							<li><a href="index.html">Mypage</a></li></br></br></br></br>
+							<li><a href="Login.html">Login</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<div style="text-align:center">
+							<h1>Login</h1>
+							<form name= "frm" method="post" action="#">
+									<div class="field half first">
+										<input type="text" name="id" id="id" placeholder="ID" />
+									</div>
+									<div class="field half">
+										<input type="text" name="password" id="password" placeholder="Password" />
+									</div>
+									<div class="field half first">
+											<input type="text" name="phonenumber" id="phonenumber" placeholder="Phonenumber" />
+									</div>
+									<div class="field half">
+											<input type="text" name="email" id="email" placeholder="Email" />
+										</div>
+									<div class="field">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<ul class="actions">
+										<li><input type=button value="클릭" onclick="checkId()"> </li>
+									</ul>
+
+						</div>
+					</div>
+
+			</div>
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
