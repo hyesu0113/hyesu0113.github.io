@@ -1,31 +1,70 @@
 <!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Generic - Phantom by HTML5 UP</title>
+		<title>Find your own</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<meta name="viewport" content="쇼핑몰 추천 사이트" />	
+
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<style>
+			div.item:nth-child(1) {background: rgb(151, 214, 235);}
+			div.item:nth-child(2) {background: rgb(224, 156, 179);}
+			div.item:nth-child(3) {background: rgb(248, 217, 177);}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function () {
+				var width = $('[data-role="slider"]').attr('data-width');
+				var height = $('[data-role="slider"]').attr('data-height');
+				var count = $('[data-role="slider"] div.item').length;
+				$('[data-role="slider"]').css({
+					position: 'relative',
+					overflow: 'hidden',
+					width: width,
+					height: height
+				}).find('.container').css({
+					position: 'absolute',
+					width: count*width,
+					overflow: 'hidden'
+				}).find('.item').css({
+					width: width,
+					height: height,
+					float: 'left'
+				});
+
+				var currentPage = 0;
+				var changePage = function () {
+					$('[data-role="slider"] > .container').animate({
+						left: -currentPage * width
+					}, 500);
+				};
+
+				$('#left-button').click(function () {
+					if (currentPage > 0) {
+						currentPage = currentPage - 1;
+						changePage();
+					}
+				});
+
+				$('#right-button').click(function () {
+					if (currentPage < count -1) {
+						currentPage = currentPage + 1;
+						changePage();
+					}
+				});
+			});
+					</script>
 	</head>
 	<body>
+			
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
 						<div class="inner">
-
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
-								</a>
 
 							<!-- Nav -->
 								<nav>
@@ -35,6 +74,8 @@
 								</nav>
 
 						</div>
+			
+			
 					</header>
 
 				<!-- Menu -->
@@ -42,44 +83,42 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="Review.html">Review</a></li></br></br></br></br>
+
+							<li><a href="Login.html">Login</a></li>
+							<li><a href="Join.html">Join</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Generic Page</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<h1>Review</h1>
+							<div data-role="sldier" data-width="200" data-height="300">
+									<div class = "container">
+										<div class = "item">
+											<h1>고고싱</h1>
+											<p>다양하고 이쁜 옷들이 많은데 가격이 합리적이네요!</p>
+										</div>
+										<div class="item">
+											<h1>언니가간다</h1>
+											<p>배송이 조금 느리지만 그만큼 가격이 엄청싸요</p>
+										</div>
+										<div class="item">
+											<h1>온더플로우</h1>
+											<p>얼짱 홍영기가 운영하는 쇼핑몰이라 믿을수있습니다</p>
+										</div>
+									</div>
+								</div>
+
+							<p>쇼핑몰 후기를 적어주세요!</p>
 						</div>
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="field half first">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="field half">
-										<input type="email" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="field">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="special" /></li>
-									</ul>
-								</form>
-							</section>
+							
 							<section>
 								<h2>Follow</h2>
 								<ul class="icons">
@@ -93,9 +132,6 @@
 									<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
 						</div>
 					</footer>
 
@@ -105,7 +141,6 @@
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
 	</body>
